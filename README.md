@@ -1,4 +1,6 @@
-# APP TEMPLATE
+# RANDOM MEMBER PICKED
+
+Pick one member of each team randomly to be a facilitator for another team.
 
 ## Development setup
 
