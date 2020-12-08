@@ -1,5 +1,6 @@
 {
-  "name": "app-template",
+  "homepage": "https://trangtmtran.github.io/random-member-picked/",
+  "name": "random-member-picked",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
