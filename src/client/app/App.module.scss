@@ -1,0 +1,44 @@
+@import '../variables.scss';
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  background-color: $grey1;
+  font-family: $font-family;
+  color: $black;
+}
+
+.teamCardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button {
+  width: fit-content;
+  font-size: $font-size-md;
+  border-radius: 5px;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lighten($black, 70%);
+  margin: 2rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}

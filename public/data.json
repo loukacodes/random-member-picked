@@ -1,0 +1,42 @@
+[
+  {
+    "teamName": "Data",
+    "teamMember": [
+      "Jesse Jaanila",
+      "Sankhet Sharma",
+      "Julian Fuchs"
+    ]
+  },
+  {
+    "teamName": "Infra",
+    "teamMember": [
+      "Jarkka Kivikanta",
+      "Darren Glynn"
+    ]
+  },
+  {
+    "teamName": "Shift management",
+    "teamMember": [
+      "Mika Kunnas",
+      "Nicolas Fabre",
+      "Jarmo Pihlajaniemi",
+      "Alexey Daletsky",
+      "Ilkka Koskinen",
+      "Mika Schafroth"
+    ]
+  },
+  {
+    "teamName": "Optimization",
+    "teamMember": [
+      "Henrik Sjöström",
+      "Laur Pulliainen"
+    ]
+  },
+  {
+    "teamName": "Emp Exp",
+    "teamMember": [
+      "Petri Julkunen",
+      "Trang Tran"
+    ]
+  }
+]
