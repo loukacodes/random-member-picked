@@ -1,42 +1,46 @@
 [
   {
-    "name": "Data",
+    "name": "Pheast",
     "members": [
-      "Jesse Jaanila",
-      "Sankhet Sharma",
-      "Julian Fuchs"
+      "Bridget Hewitt",
+      "Lolita Vasquez",
+      "Dawn Nielsen",
+      "Rosanne Shields",
+      "Reyna Baker"
     ]
   },
   {
-    "name": "Infra",
+    "name": "Helixo",
     "members": [
-      "Jarkka Kivikanta",
-      "Darren Glynn"
+      "Iris Spears",
+      "Clark Cole",
+      "Phyllis Kelley",
+      "Henrietta Randolph"
     ]
   },
   {
-    "name": "Shift management",
+    "name": "Pearlesex",
     "members": [
-      "Mika Kunnas",
-      "Nicolas Fabre",
-      "Jarmo Pihlajaniemi",
-      "Alexey Daletsky",
-      "Ilkka Koskinen",
-      "Mika Schafroth"
+      "Goodwin Vega",
+      "Minnie Fox",
+      "Puckett Santiago",
+      "Sharpe Russo"
     ]
   },
   {
-    "name": "Optimization",
+    "name": "Primordia",
     "members": [
-      "Henrik Sjöström",
-      "Laur Pulliainen"
+      "Diaz Velez",
+      "Bright Newton",
+      "Carlson Sharp",
+      "Hahn Battle"
     ]
   },
   {
-    "name": "Emp Exp",
+    "name": "Cincyr",
     "members": [
-      "Petri Julkunen",
-      "Trang Tran"
+      "York Conway",
+      "Hogan Kirby"
     ]
   }
 ]

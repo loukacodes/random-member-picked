@@ -63,7 +63,7 @@ const App = () => {
         (shuffledTeam) => shuffledTeam === team
       )
       const anotherTeamMembers = data[alternativeIndex].members
-      const shuffledAnotherTeamMembers = shuffle(anotherTeamMembers)
+      const shuffledAnotherTeamMembers = shuffle(Array.from(anotherTeamMembers))
       const facilitator =
         shuffledAnotherTeamMembers[getRandomInt(anotherTeamMembers.length)]
       return {
