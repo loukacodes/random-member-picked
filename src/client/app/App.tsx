@@ -1,3 +1,4 @@
+import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { Team, TeamWithFacilitator } from '../../common/types'
 import TeamCard from '../team/TeamCard'
@@ -33,27 +34,41 @@ const App = () => {
     return Math.floor(Math.random() * Math.floor(max))
   }
 
-  function getAnotherTeamIndex(
-    currentIndex: number,
-    maxLength: number
-  ): number {
-    let couldBeAnotherTeamIndex = getRandomInt(maxLength)
-    if (couldBeAnotherTeamIndex !== currentIndex) {
-      couldBeAnotherTeamIndex = getRandomInt(maxLength)
-      getAnotherTeamIndex(currentIndex, maxLength)
+  function shuffle<T>(array: T[]): T[] {
+    var currentIndex = array.length,
+      temporaryValue,
+      randomIndex
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex -= 1
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex]
+      array[currentIndex] = array[randomIndex]
+      array[randomIndex] = temporaryValue
     }
-    return couldBeAnotherTeamIndex
+
+    return array
   }
 
   const findFacilitator = () => {
     if (!data) return null
-    const teamsWithFacilitator = data.map((team, index) => {
-      const anotherTeam = data[getAnotherTeamIndex(index, data.length)]
+
+    const shuffledTeams = shuffle(Array.from(data))
+    const teamsWithFacilitator = data.map((team) => {
+      const alternativeIndex = shuffledTeams.findIndex(
+        (shuffledTeam) => shuffledTeam === team
+      )
+      const anotherTeamMembers = data[alternativeIndex].members
+      const shuffledAnotherTeamMembers = shuffle(anotherTeamMembers)
       const facilitator =
-        anotherTeam.teamMember[getRandomInt(anotherTeam.teamMember.length)]
+        shuffledAnotherTeamMembers[getRandomInt(anotherTeamMembers.length)]
       return {
-        teamName: team.teamName,
-        teamMember: team.teamMember,
+        name: team.name,
+        members: team.members,
         facilitator: facilitator,
       }
     })
@@ -63,11 +78,13 @@ const App = () => {
 
   return (
     <div className={styles.root}>
+      <h1>Monthly facilitator generation</h1>
+      <h3>{moment().format('MMMM YYYY')}</h3>
       <div className={styles.teamCardWrapper}>
         {teams.map((team) => (
           <TeamCard
-            teamName={team.teamName}
-            teamMember={team.teamMember}
+            name={team.name}
+            members={team.members}
             facilitator={team.facilitator}
           />
         ))}

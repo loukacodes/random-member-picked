@@ -1,12 +1,10 @@
 type Team = {
-  teamName: string
-  teamMember: string[]
+  name: string
+  members: string[]
 }
-
-type BiggerTeam = Team[]
 
 interface TeamWithFacilitator extends Team {
   facilitator?: string
 }
 
-export type { Team, BiggerTeam, TeamWithFacilitator }
+export type { Team, TeamWithFacilitator }

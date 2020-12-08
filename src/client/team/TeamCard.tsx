@@ -2,24 +2,25 @@ import React from 'react'
 import styles from './TeamCard.module.scss'
 
 interface TeamCardProps {
-  teamName: string
-  teamMember: string[]
+  name: string
+  members: string[]
   facilitator?: string
 }
-const TeamCard: React.FC<TeamCardProps> = ({
-  teamName,
-  teamMember,
-  facilitator,
-}) => {
+const TeamCard: React.FC<TeamCardProps> = ({ name, members, facilitator }) => {
   return (
     <div className={styles.root}>
-      <h3>{teamName}</h3>
+      <h3 className={styles.name}>{name}</h3>
       <div>
-        {teamMember.map((name) => {
+        {members.map((name) => {
           return <div>{name}</div>
         })}
       </div>
-      <div className={styles.facilitator}>Facilitator: {facilitator}</div>
+      <div className={styles.facilitator}>
+        <div>Facilitator this month: </div>
+        <div>
+          <strong>{facilitator}</strong>
+        </div>
+      </div>
     </div>
   )
 }
