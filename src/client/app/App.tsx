@@ -6,8 +6,12 @@ import TeamCard from '../team/TeamCard'
 import styles from './App.module.scss'
 
 const App = () => {
-  const [data, setData] = useState<TeamWithFacilitator[]>()
-  const [teams, setTeamsWithFacilitator] = useState<TeamWithFacilitator[]>([])
+  const localStorageData = JSON.parse(
+    window.localStorage.getItem('teamsWithFacilitator')?.toString() || ''
+  )
+  const [teams, setTeamsWithFacilitator] = useState<TeamWithFacilitator[]>(
+    localStorageData
+  )
 
   const getData = () => {
     fetch('data.json', {
@@ -20,30 +24,33 @@ const App = () => {
         return response.json()
       })
       .then(function (data) {
-        setData(
+        setTeamsWithFacilitator(
           data.map((team: Team) => {
-            return { ...team, facilitator: 'no one' }
+            return { ...team, facilitator: 'Not yet found' }
           })
         )
       })
   }
+
   useEffect(() => {
-    getData()
-  }, [])
+    if (!localStorageData) {
+      getData()
+    }
+  }, [localStorageData])
 
   function getRandomInt(max: number) {
     return Math.floor(Math.random() * Math.floor(max))
   }
 
   const findFacilitator = () => {
-    if (!data) return null
+    if (!teams) return null
 
-    const shuffledTeams = shuffle(Array.from(data))
-    const teamsWithFacilitator = data.map((team) => {
+    const shuffledTeams = shuffle(Array.from(teams))
+    const teamsWithFacilitator = teams.map((team) => {
       const alternativeIndex = shuffledTeams.findIndex(
         (shuffledTeam) => shuffledTeam === team
       )
-      const anotherTeamMembers = data[alternativeIndex].members
+      const anotherTeamMembers = teams[alternativeIndex].members
       const shuffledAnotherTeamMembers = shuffle(Array.from(anotherTeamMembers))
       const facilitator =
         shuffledAnotherTeamMembers[getRandomInt(anotherTeamMembers.length)]
@@ -52,8 +59,11 @@ const App = () => {
         facilitator: facilitator,
       }
     })
-
     setTeamsWithFacilitator(teamsWithFacilitator)
+    window.localStorage.setItem(
+      'teamsWithFacilitator',
+      JSON.stringify(teamsWithFacilitator)
+    )
   }
 
   return (
