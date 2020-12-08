@@ -2,6 +2,8 @@
 
 Pick one member of each team randomly to be a facilitator for another team.
 
+[Check it out!](https://trangtmtran.github.io/random-member-picked/)
+
 ## Development setup
 
 - Install [nodejs](https://nodejs.org/) (Recommended version: 12.14.0)
