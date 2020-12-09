@@ -1,6 +1,6 @@
 # RANDOM MEMBER PICKED
 
-Pick one member of each team randomly to be a facilitator for another team.
+Pick one member of each team randomly to be a facilitator for another team!
 
 [Check it out!](https://trangtmtran.github.io/random-member-picked/)
 
