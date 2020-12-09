@@ -6,12 +6,7 @@ import TeamCard from '../team/TeamCard'
 import styles from './App.module.scss'
 
 const App = () => {
-  const localStorageData = JSON.parse(
-    window.localStorage.getItem('teamsWithFacilitator')?.toString() || '[]'
-  )
-  const [teams, setTeamsWithFacilitator] = useState<TeamWithFacilitator[]>(
-    localStorageData
-  )
+  const [teams, setTeamsWithFacilitator] = useState<TeamWithFacilitator[]>([])
 
   const getData = () => {
     fetch('data.json', {
@@ -33,10 +28,8 @@ const App = () => {
   }
 
   useEffect(() => {
-    if (!localStorageData || localStorageData.length === 0) {
       getData()
-    }
-  }, [localStorageData])
+  }, [])
 
   function getRandomInt(max: number) {
     return Math.floor(Math.random() * Math.floor(max))
@@ -60,10 +53,6 @@ const App = () => {
       }
     })
     setTeamsWithFacilitator(teamsWithFacilitator)
-    window.localStorage.setItem(
-      'teamsWithFacilitator',
-      JSON.stringify(teamsWithFacilitator)
-    )
   }
 
   return (
