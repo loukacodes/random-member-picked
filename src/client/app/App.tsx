@@ -33,7 +33,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    if (!localStorageData) {
+    if (!localStorageData || localStorageData.length === 0) {
       getData()
     }
   }, [localStorageData])
