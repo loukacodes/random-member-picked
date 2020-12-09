@@ -7,7 +7,7 @@ import styles from './App.module.scss'
 
 const App = () => {
   const localStorageData = JSON.parse(
-    window.localStorage.getItem('teamsWithFacilitator')?.toString() || '{}'
+    window.localStorage.getItem('teamsWithFacilitator')?.toString() || '[]'
   )
   const [teams, setTeamsWithFacilitator] = useState<TeamWithFacilitator[]>(
     localStorageData
